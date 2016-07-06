@@ -2,8 +2,10 @@ var vm = new Vue({
   el: '#app',
   data: {
     columns: ['title', 'country', 'city', 'time', 'description'],
-    character_limit: 70,
+    title_character_limit: 70,
+    description_character_limit: 140,
     search: '',
+    filterExpand: false,
     posts: [
       { type: 'search', country: 'Germany', post_time: '29.06.16 17:20', area: 'Thirungia',              time: 'I can start from this moment', author: 'Molham',           title: 'Im refuge i can speak english and little deutch i want any kind of work', description: 'I search to find work any kind of work'},
       { type: 'offer',  country: 'Germany', post_time: '29.06.16 13:45', area: 'North Rhine-Westphalia', time: 'Sofort',                       author: 'Hadeel Almuzayan', title: 'B2 German language',                                                      description: 'Im looking for refugees interested to fill Ausbildung Positions in a Company we already cooperate with to help the refugees. Requirements: you need a B2 German Course, a work Permit, flexible to move, willing commit in 3 years contract. The Ausbildung is good pained around 1000 euro in a month, the age must be between 18-35 years old.'},
@@ -27,6 +29,9 @@ var vm = new Vue({
       // console.log(this.posts[0].title)
       console.log(this.search)
       this.search = test
+    },
+    expandFilter: function () {
+      this.filterExpand = !this.filterExpand
     }
   },
   filters: {
