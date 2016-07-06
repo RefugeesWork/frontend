@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title>RefugeesWork</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,6 @@
     <!-- <link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" href="css/style.min.css">
     <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
-
 
 </head>
 <body>
@@ -34,20 +33,22 @@
     <div id="app">
         <div id="filters">
             <input v-model="search" class="search" placeholder="Filter posts">
-            <h3>Location</h3>
-            <div class="tag" v-on:click="filter('berlin')">Berlin</div><br>
-            <h3>Time</h3>
-            <h3>Location</h3>
-            <h3>Location</h3>
-            <h3>Location</h3>
+            <div class="additional">
+                <h3>Location</h3>
+                <div class="tag" v-on:click="filter('berlin')">Berlin</div>
+                <div class="tag" v-on:click="filter('Germany')">Germany</div>
+                <h3>Time</h3>
+            </div>
         </div>
         <ul id="job-board">
-            <li class="job-post" v-for="post in posts | filterBy search">
+            <li class="job-post" v-on:click="expandPost()" v-for="post in posts | filterBy search">
                 <h3  class="title">{{ post.title | truncate 60 }}</h3>
                 <div class="description" v-if="post.description">{{ post.description | truncate character_limit }}</div>
-                <div class="tag"         v-if="post.country">{{ post.country }}</div>
-                <div class="tag"         v-if="post.area">{{ post.area }}</div>
-                <div class="tag"         v-if="post.time">{{ post.time }}</div>
+                <div class="information">
+                    <div class="tag"         v-if="post.country">{{ post.country }}</div>
+                    <div class="tag"         v-if="post.area">{{ post.area }}</div>
+                    <div class="tag"         v-if="post.time">{{ post.time }}</div>
+                </div>
             </li>
         </ul>
     </div>
