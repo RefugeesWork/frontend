@@ -50,7 +50,7 @@
             <li class="job-post" v-on:click="expandPost()" v-for="post in posts | filterBy search">
                 <i class="fa fa-briefcase" aria-hidden="true"></i><h3  class="title">{{ post.title | truncate title_character_limit }}</h3>
                 <div class="description" v-if="post.description">{{ post.description | truncate description_character_limit }}</div>
-                <div class="information">
+                <div class="tags">
                     <div class="tag"         v-if="post.country">{{ post.country }}</div>
                     <div class="tag"         v-if="post.area">{{ post.area }}</div>
                     <div class="tag"         v-if="post.time">{{ post.time }}</div>
