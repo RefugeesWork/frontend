@@ -32,7 +32,6 @@ for_breakpoint(breakpoints)
   @media conditions
     {block}
 
-
 vendor(prop, args)
   -webkit-{prop} args
   -moz-{prop} args
@@ -86,7 +85,10 @@ div, input, textarea, li
 h1
   font-size 2em
   color $header-font-color
-  
+
+ul
+  margin 0
+  padding 0
 
 
 // ------------------------------------------
@@ -138,19 +140,28 @@ header
 // JOBS
 // ------------------------------------------
 
-#filters
+#app 
   width 100%
+  min-height 100%
+  position absolute
   background $color1
-  float left
-  padding 15px
-  color #fff
 
+#filters
+  padding 15px 20px
+  margin 0
+  width 20vw
+  float left
+  min-height 100%
+  color #fff
+  box-sizing border-box
+  
   +for_breakpoint(mobile tablet)
-    height 63px
+    height 60px
     overflow hidden
+    width 100%
     
   .additional
-    height 0
+    // height 0
     overflow hidden
     
   .search
@@ -161,64 +172,54 @@ header
     width 100%
     
 #job-board 
+  min-height 100vh
   margin 0
-  padding 1%
-  float left
-  width 100vw
+  float right
+  width 80vw
   box-sizing border-box
+  padding 20px
+  background #eee
   
+  +for_breakpoint(mobile tablet)
+    width 100%
   
   .job-post
     list-style none
-    float left
-    
+    padding 0 0 8px 0
+    margin 0 0 10px 0
     background #fff
-    border-bottom 1px solid #eee
-    border-right 1px solid  #eee
-    width (94/4)%
-    margin .8% .5%
-    min-height 150px
-    
+    width 100%
     transition box-shadow .3s ease-out, margin .3s ease-out
-    
 
     &:hover
       box-shadow 4px 8px 15px rgba(0,0,0,.2)
     
-    +for_breakpoint(desktop)
-      width (96/3)%
-      
-    +for_breakpoint(tablet)
-      width (98/2)%
-    
-    +for_breakpoint(mobile)
-      width 98%
 
-    
   .title
     margin 0
-    padding 10px
-    background $color1
-    color #fff
+    padding 10px 0 0 15px
+    
+    // background $color1
+    // color #fff
     
   .description
-    padding 10px 15px
+    padding 0px 0px 10px 15px
     font-size .9em
     line-height 1.5em
     
   .information
-    height 0
-    overflow hidden
-
+    padding 1px 9px 3px 9px
+    font-size .9em
+    
   // Optical fix for tags (probably because of colour contrasts)
   .tag
     padding 1px 9px 3px 9px
     font-size .9em
 
 .tag
-  display inline
+  display inline-block
   background $color2
   color #000
-  margin 0 7px 0 -3px
+  margin 0 8px 5px 0
   padding 2px 9px 2px 9px
   border-radius 30px
