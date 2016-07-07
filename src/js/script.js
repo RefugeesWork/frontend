@@ -112,3 +112,18 @@ var vm = new Vue({
     }
   }
 })
+
+// ------------------------------------------------------------------------------------
+//  POST COMPONENT
+// ------------------------------------------------------------------------------------
+var MyPost = Vue.extend({
+  template: '<h3  class="title">{{ post.title | truncate title_character_limit }}</h3>'
+})
+
+// Globally register the component with tag: my-component
+Vue.component('my-post', MyPost)
+
+// create a root instance
+var post = new Vue({
+  el: '#example'
+})
